@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductionTool extends BaseModel
 {
+    use HasFactory;
     protected $fillable = [
         'umkm_profile_id',
         'nama_alat',
