@@ -140,9 +140,7 @@
                         </h3>
                         <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">2025</span>
                     </div>
-                    <div class="relative" style="height: 280px;">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
+                    <canvas id="revenueChart" class="w-full" style="height: 250px;"></canvas>
                 </div>
 
                 <!-- Production Tools by Condition -->
@@ -156,11 +154,9 @@
                         </h3>
                     </div>
                     @if($stats['total_production_tools'] > 0)
-                        <div class="relative" style="height: 280px;">
-                            <canvas id="toolsChart"></canvas>
-                        </div>
+                        <canvas id="toolsChart" class="w-full" style="height: 250px;"></canvas>
                     @else
-                        <div class="flex items-center justify-center text-gray-400" style="height: 280px;">
+                        <div class="flex items-center justify-center h-64 text-gray-400">
                             <div class="text-center">
                                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
@@ -182,49 +178,49 @@
                         </svg>
                         Informasi Usaha
                     </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100">
                             <p class="text-xs text-blue-600 font-semibold uppercase tracking-wider mb-2">Nama Usaha</p>
-                            <p class="text-sm font-bold text-gray-900 break-words">{{ $profile->nama_usaha }}</p>
+                            <p class="text-base font-bold text-gray-900">{{ $profile->nama_usaha }}</p>
                         </div>
                         <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-100">
                             <p class="text-xs text-purple-600 font-semibold uppercase tracking-wider mb-2">Jenis Usaha</p>
-                            <p class="text-sm font-bold text-gray-900">{{ ucwords($profile->jenis_usaha) }}</p>
+                            <p class="text-base font-bold text-gray-900">{{ ucwords($profile->jenis_usaha) }}</p>
                         </div>
                         <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-100">
                             <p class="text-xs text-green-600 font-semibold uppercase tracking-wider mb-2">NIB</p>
-                            <p class="text-xs font-mono font-bold text-gray-900 break-all">{{ $user->nib }}</p>
+                            <p class="text-base font-mono font-bold text-gray-900">{{ $user->nib }}</p>
                         </div>
                         <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-lg p-4 border border-orange-100">
                             <p class="text-xs text-orange-600 font-semibold uppercase tracking-wider mb-2">Lokasi</p>
-                            <p class="text-sm font-bold text-gray-900">{{ ucwords($profile->kelurahan) }}</p>
+                            <p class="text-base font-bold text-gray-900">{{ ucwords($profile->kelurahan) }}</p>
                             <p class="text-xs text-gray-600 mt-1">{{ ucwords($profile->kecamatan) }}</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Location & Map Link -->
-                <div class="lg:col-span-1 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                         Lokasi Usaha
                     </h3>
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-6 flex flex-col items-center justify-center text-center">
-                        <a href="{{ route('map.index') }}" class="group w-full">
-                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300 mx-auto">
-                                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-8 h-full flex flex-col items-center justify-center min-h-[200px]">
+                        <a href="{{ route('map.index') }}" class="group text-center">
+                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                             </div>
-                            <span class="text-gray-800 font-bold text-base group-hover:text-blue-600 transition-colors block mb-1">
+                            <span class="text-gray-800 font-bold text-lg group-hover:text-blue-600 transition-colors block mb-2">
                                 Lihat di Peta
                             </span>
                             <span class="text-xs text-gray-600">
-                                Visualisasi geografis
+                                Visualisasi geografis UMKM
                             </span>
                         </a>
                     </div>
@@ -305,10 +301,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Revenue Trend Chart
         const revenueCtx = document.getElementById('revenueChart');
         if (revenueCtx) {
-            revenueCtx.style.display = 'block';
-            revenueCtx.style.height = '280px';
-            revenueCtx.style.width = '100%';
-            
             new Chart(revenueCtx, {
                 type: 'line',
                 data: {
@@ -367,10 +359,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Production Tools by Condition Chart
         const toolsCtx = document.getElementById('toolsChart');
         if (toolsCtx && {{ $stats['total_production_tools'] }} > 0) {
-            toolsCtx.style.display = 'block';
-            toolsCtx.style.height = '280px';
-            toolsCtx.style.width = '100%';
-            
             const toolsData = @json($toolsByCondition);
             const labels = Object.keys(toolsData).map(k => {
                 const map = {
